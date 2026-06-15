@@ -1,0 +1,1265 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f6f3ea" />
+    <title>贵州景区智能体 · UI原型</title>
+    <link rel="stylesheet" href="./styles.css?v=20260615-1259" />
+  </head>
+  <body class="theme-culture">
+    <div class="stage" id="stage" aria-label="贵州景区智能体原型">
+      <header class="topbar">
+        <div class="topbarMain">
+          <button class="scenicEntry" id="btnScenicSwitch" aria-label="切换景区">
+            <span class="scenicMenu" aria-hidden="true"><span class="i i-menu"></span></span>
+            <span class="scenicText">
+              <span class="scenicName">黄果树瀑布</span>
+            </span>
+            <span class="scenicArrow" aria-hidden="true"><span class="i i-chevron-down"></span></span>
+          </button>
+        </div>
+        <div class="topbarActions">
+          <button class="langBtn" id="btnLanguage" aria-label="多语言切换">
+            <span class="i i-language" aria-hidden="true"></span>
+          </button>
+          <div class="actionPill" aria-label="更多操作">
+            <button class="pillAction" id="btnGlobal" aria-label="更多">
+              <span class="i i-dots" aria-hidden="true"></span>
+            </button>
+            <span class="pillDivider" aria-hidden="true"></span>
+            <button class="pillAction" id="btnProfile" aria-label="个人中心">
+              <span class="i i-user" aria-hidden="true"></span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Views -->
+      <main class="viewport" id="viewport">
+        <!-- 智能体 -->
+        <section class="view isActive" id="view-agent" data-view="agent">
+          <div class="agentScroll">
+            <div class="agentShowcase">
+              <section class="agentQuickBanner" aria-label="出行前快捷功能">
+                <div class="agentQuickBannerHead">
+                  <div>
+                    <div class="agentQuickTitle">景区早知道！</div>
+                  </div>
+                </div>
+                <div class="agentQuickGrid">
+                  <button class="agentQuickItem" type="button" data-prompt="帮我规划一条黄果树景区游玩路线，按时间、景点顺序和避开人流给我建议">
+                    <span class="agentQuickIcon" aria-hidden="true"><img src="./assets/icon-banner-route.png" alt="" /></span>
+                    <span>路线？</span>
+                  </button>
+                  <button class="agentQuickItem" type="button" data-prompt="黄果树景区门票怎么买？是否需要预约？请告诉我购票和入园注意事项">
+                    <span class="agentQuickIcon" aria-hidden="true"><img src="./assets/icon-banner-ticket.png" alt="" /></span>
+                    <span>买票？</span>
+                  </button>
+                  <button class="agentQuickItem" type="button" data-prompt="我想去黄果树景区，帮我判断今天适不适合去，并告诉我建议出发时间">
+                    <span class="agentQuickIcon" aria-hidden="true"><img src="./assets/icon-banner-scenic.png" alt="" /></span>
+                    <span>去景区？</span>
+                  </button>
+                  <button class="agentQuickItem" type="button" data-prompt="黄果树景区停车方便吗？帮我查询停车场位置、收费和到入口的方式">
+                    <span class="agentQuickIcon" aria-hidden="true"><img src="./assets/icon-banner-parking.png" alt="" /></span>
+                    <span>停车？</span>
+                  </button>
+                  <button class="agentQuickItem" type="button" data-prompt="黄果树景区可以寄存行李吗？帮我查询行李寄存位置、时间和注意事项">
+                    <span class="agentQuickIcon" aria-hidden="true"><img src="./assets/icon-banner-luggage.png" alt="" /></span>
+                    <span>行李寄存？</span>
+                  </button>
+                </div>
+              </section>
+
+              <section class="preTripPanel" aria-label="景区出行推荐">
+                <div class="preTripRouteCard">
+                  <div class="preTripAvatar" aria-hidden="true">
+                    <img src="./assets/agent-mascot.png" alt="" />
+                  </div>
+                  <div class="preTripDotted" aria-hidden="true"></div>
+                  <div class="preTripInfo">
+                    <div class="preTripTitle">黄果树瀑布</div>
+                    <div class="preTripMeta">3.2km · 16分钟</div>
+                    <div class="preTripStatus">多人前往</div>
+                  </div>
+                  <button class="preTripGo" id="preTripGoBtn" type="button">去景区</button>
+                </div>
+                <div class="preTripBottom">
+                  <div class="preTripAskCard">
+                    <div class="preTripAskTitle">推荐问答</div>
+                    <button class="preTripAskItem" type="button" data-prompt="黄果树瀑布哪条线最好玩？请结合当前客流、时间和景点顺序推荐">
+                      <span>哪条线最好玩</span>
+                      <span class="preTripSend"><span class="i i-send" aria-hidden="true"></span></span>
+                    </button>
+                    <button class="preTripAskItem" type="button" data-prompt="去黄果树瀑布需要坐观光车吗？请告诉我乘车点、是否必要和注意事项">
+                      <span>需要坐观光车吗</span>
+                      <span class="preTripSend"><span class="i i-send" aria-hidden="true"></span></span>
+                    </button>
+                  </div>
+                  <button class="preTripImageCard" type="button" id="preTripImageBtn" aria-label="查看黄果树瀑布导航">
+                    <img class="preTripSlide isOn" src="./assets/pretrip-slide-worldcup.png" alt="世界杯主题活动" />
+                    <img class="preTripSlide" src="./assets/pretrip-slide-match.png" alt="消消乐活动" />
+                  </button>
+                </div>
+              </section>
+            </div>
+            <div class="agentChatMount" id="chatList" aria-label="智能体对话"></div>
+          </div>
+
+          <div class="composerWrap">
+            <div class="agentShortcutBar" aria-label="首页快捷入口">
+              <button class="agentShortcutBtn isPrimary" id="agentShortcutService" type="button">
+                <span class="i i-grid" aria-hidden="true"></span>
+                <span>服务中心</span>
+              </button>
+              <button class="agentShortcutBtn" id="agentShortcutGoods" type="button">
+                <span class="i i-bag" aria-hidden="true"></span>
+                <span>商城</span>
+              </button>
+              <button class="agentShortcutBtn isIconOnly" id="agentShortcutPhone" type="button" aria-label="客服电话">
+                <span class="i i-phone" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="agentBottomSwitch">
+              <button class="agentModeToggle" id="agentModeToggle" aria-label="切换到底部导航">
+                <span class="i i-map" id="agentModeToggleIcon" aria-hidden="true"></span>
+              </button>
+              <div class="composer agentComposer" id="agentComposer">
+                <button class="iconBtn soft" id="btnMic" aria-label="语音">
+                  <span class="i i-mic" aria-hidden="true"></span>
+                </button>
+                <input id="chatInput" class="chatInput" placeholder="问我：黄果树今天人多吗？" autocomplete="off" />
+                <button class="sendBtn" id="btnSend" aria-label="发送">
+                  <span class="i i-send" aria-hidden="true"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 此刻 -->
+        <section class="view" id="view-now" data-view="now">
+          <section class="aiBriefCard aiBriefCard--deck" aria-label="AI播报">
+            <div class="aiBriefDeckHead">
+              <button class="aiBriefTitle" id="btnAiBriefList" aria-label="进入AI播报列表">
+                <span class="aiBriefAvatar" aria-hidden="true"><img src="./assets/ai-broadcast-avatar.png" alt="" /></span>
+                <span>AI播报</span>
+              </button>
+              <button class="aiBriefCta aiBriefArrow" id="btnAiBriefAction" aria-label="进入AI播报列表">→</button>
+            </div>
+            <div class="aiBriefDeck" aria-label="天气、客流与景区公告横向播报">
+              <button class="aiBriefSlide aiBriefSlide--weather" data-notice-id="weather" data-no-ripple="1" aria-label="天气播报详情">
+                <div class="aiBriefSlideTop">
+                  <span class="aiBriefType">天气</span>
+                  <span class="aiBriefTime">实时</span>
+                </div>
+                <div class="aiBriefValue">21°C</div>
+                <div class="aiBriefMeta">
+                  <span class="aiBriefChip">建议：轻薄外套</span>
+                  <span class="aiBriefChip">雨衣可备</span>
+                </div>
+              </button>
+
+              <button class="aiBriefSlide aiBriefSlide--crowd" data-notice-id="crowd-rise" data-no-ripple="1" aria-label="客流播报详情">
+                <div class="aiBriefSlideTop">
+                  <span class="aiBriefType">客流</span>
+                  <span class="aiBriefTime">14:30 预测</span>
+                </div>
+                <div class="aiBriefValue">舒适</div>
+                <div class="aiBriefMeta">
+                  <span class="aiBriefChip">依据：客流趋势</span>
+                  <span class="aiBriefChip">影响：等候变长</span>
+                </div>
+              </button>
+
+              <button class="aiBriefSlide aiBriefSlide--notice" data-notice-id="shuttle" data-no-ripple="1" aria-label="公告播报详情">
+                <div class="aiBriefSlideTop">
+                  <span class="aiBriefType">公告</span>
+                  <span class="aiBriefTime">刚刚</span>
+                </div>
+                <div class="aiBriefValue">接驳正常</div>
+                <div class="aiBriefMeta">
+                  <span class="aiBriefChip aiBriefChip--title">接驳车当前约 5 分钟一班，高峰期建议提前一班候车。</span>
+                </div>
+              </button>
+            </div>
+          </section>
+
+          <div class="feed">
+            <div class="sectionHead">
+              <div class="hStack">
+                <div class="h">此刻建议</div>
+              </div>
+            </div>
+            <div class="suggestGrid">
+              <button class="suggestCard isActive" data-suggest="rowing" data-ai-pref="kid">
+                <img class="suggestMedia" src="./assets/suggest-rowing.png" alt="划船体验" />
+                <div class="sgTop">
+                  <div class="sgText">
+                    <div class="sgTitle">人气项目 · 划船体验</div>
+                    <div class="sgEyebrow" data-ask="划船体验现在适合去吗？帮我结合客流和路线判断">
+                      <span class="sgAiAvatar" aria-hidden="true"><img src="./assets/agent-mascot.png" alt="" /></span>
+                      <span class="sgEyebrowText">问问我</span>
+                    </div>
+                  </div>
+                  <div class="badge">热门</div>
+                </div>
+              </button>
+              <button class="suggestCard isNext" data-suggest="waterfall" data-ai-pref="quick">
+                <img class="suggestMedia" src="./assets/suggest-waterfall.png" alt="瀑布观景" />
+                <div class="sgTop">
+                  <div class="sgText">
+                    <div class="sgTitle">瀑布观景 · 此刻推荐</div>
+                    <div class="sgEyebrow" data-ask="现在去瀑布观景合适吗？哪里人少、怎么走更顺路？">
+                      <span class="sgAiAvatar" aria-hidden="true"><img src="./assets/agent-mascot.png" alt="" /></span>
+                      <span class="sgEyebrowText">问问我</span>
+                    </div>
+                  </div>
+                  <div class="badge">人少</div>
+                </div>
+              </button>
+              <button class="suggestCard isPrev" data-suggest="show" data-ai-pref="limited">
+                <img class="suggestMedia" src="./assets/suggest-ethnic-show.png" alt="民族表演" />
+                <div class="sgTop">
+                  <div class="sgText">
+                    <div class="sgTitle">14:50 民族表演</div>
+                    <div class="sgEyebrow" data-ask="14:50 民族表演值得去吗？帮我安排过去的时间和路线">
+                      <span class="sgAiAvatar" aria-hidden="true"><img src="./assets/agent-mascot.png" alt="" /></span>
+                      <span class="sgEyebrowText">问问我</span>
+                    </div>
+                  </div>
+                  <div class="badge badgeWarm">限时</div>
+                </div>
+              </button>
+            </div>
+
+            <div class="sectionHead">
+              <div class="hStack">
+                <div class="h">推荐互动</div>
+              </div>
+            </div>
+            <div class="activityRow" id="aiActivityRow">
+              <button class="activityCard activityCard--mint" data-act="match3" aria-label="消消乐">
+                <div class="activityTitle">消消乐</div>
+                <div class="aiReasonRow">
+                  <span class="aiReason">排队间隙</span>
+                  <span class="aiReason">亲子友好</span>
+                </div>
+                <div class="activityDesc">走路间隙来一局，不耽误路线。</div>
+              </button>
+              <button class="activityCard activityCard--blue" data-act="worldcup" aria-label="世界杯游戏">
+                <div class="activityTitle">世界杯游戏</div>
+                <div class="aiReasonRow">
+                  <span class="aiReason">限时</span>
+                  <span class="aiReason">组队更嗨</span>
+                </div>
+                <div class="activityDesc">适合你想停下来玩 10 分钟的时候。</div>
+              </button>
+            </div>
+
+            <div class="sectionHead">
+              <div class="hStack">
+                <div class="h">标记点指数榜</div>
+              </div>
+              <div class="headActions">
+                <div class="seg" role="tablist" aria-label="榜单筛选">
+                  <button class="segBtn isOn" data-filter="all">全部</button>
+                  <button class="segBtn" data-filter="view">必玩榜</button>
+                  <button class="segBtn" data-filter="food">好吃榜</button>
+                </div>
+              </div>
+            </div>
+            <div class="ugcMasonry" id="ugcRow" aria-label="标记点指数榜横向列表">
+              <button class="ugcCard" data-rank-id="rank1" data-tag="view" data-src="aigc" aria-label="观瀑台">
+                <div class="ugcAiBadge" aria-hidden="true">AI</div>
+                <div class="ugcImg ugcA" aria-hidden="true"></div>
+                <div class="ugcCap">
+                  <div class="ugcTitle">观瀑台 · 此刻指数更高</div>
+                  <div class="ugcDesc">雾散了一点点，瀑布层次很出。</div>
+                  <div class="ugcAuthor">
+                    <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
+                    <span class="ugcAuthorName">宣发助手</span>
+                  </div>
+                </div>
+              </button>
+              <button class="ugcCard" data-rank-id="rank2" data-tag="food" data-src="aigc" aria-label="酸汤鱼">
+                <div class="ugcAiBadge" aria-hidden="true">AI</div>
+                <div class="ugcImg ugcB" aria-hidden="true"></div>
+                <div class="ugcCap">
+                  <div class="ugcTitle">酸汤鱼 · 排队不长</div>
+                  <div class="ugcDesc">排队不长，辣度可选，汤很香。</div>
+                  <div class="ugcAuthor">
+                    <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
+                    <span class="ugcAuthorName">宣发助手</span>
+                  </div>
+                </div>
+              </button>
+              <button class="ugcCard" data-rank-id="rank3" data-tag="view" data-src="aigc" aria-label="天星桥">
+                <div class="ugcAiBadge" aria-hidden="true">AI</div>
+                <div class="ugcImg ugcC" aria-hidden="true"></div>
+                <div class="ugcCap">
+                  <div class="ugcTitle">天星桥 · 湿滑提醒</div>
+                  <div class="ugcDesc">这段路湿滑，鞋底防滑更舒服。</div>
+                  <div class="ugcAuthor">
+                    <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
+                    <span class="ugcAuthorName">宣发助手</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+
+            <div class="sectionHead">
+              <div class="hStack">
+                <div class="h">游玩攻略</div>
+              </div>
+              <div class="headActions guideHeadActions">
+                <button class="ghostBtn guideUploadEntry" id="btnUploadGuide">
+                  <span class="i i-plus" aria-hidden="true"></span>
+                  <span>发布攻略</span>
+                </button>
+                <button class="ghostBtn" id="btnAiGuide">让AI定制</button>
+              </div>
+            </div>
+            <div class="guideMenu" role="tablist" aria-label="游玩攻略菜单">
+              <button class="guideMenuBtn isOn" data-guide-filter="all">全部</button>
+              <button class="guideMenuBtn" data-guide-filter="精华">精华</button>
+              <button class="guideMenuBtn" data-guide-filter="深度">深度</button>
+              <button class="guideMenuBtn" data-guide-filter="亲子">亲子</button>
+              <button class="guideMenuBtn" data-guide-filter="美食">美食</button>
+              <button class="guideMenuBtn" data-guide-filter="住宿">住宿</button>
+              <button class="guideMenuBtn" data-guide-filter="拍照">拍照</button>
+            </div>
+            <div class="guideMasonry" id="guideMasonry" aria-label="分类攻略瀑布流">
+              <button class="guideCard" data-guide="classic" data-guide-cat="精华" aria-label="精华攻略">
+                <div class="guideCover guideCover--photo" aria-hidden="true"></div>
+                <div class="guideBody">
+                  <div class="guideTitle">第一次来黄果树，照着这条走基本不踩雷</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">首次必看</span>
+                    <span class="guideTag">约 4h</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--amy" aria-hidden="true">苗</span>
+                      <span class="guideAuthorName">阿苗旅拍</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="avoid" data-guide-cat="精华" aria-label="精华攻略">
+                <div class="guideCover guideCover--avoid" aria-hidden="true">
+                  <div class="guideTopline">
+                    <div class="guideSource guideSource--aigc">AI</div>
+                  </div>
+                </div>
+                <div class="guideBody">
+                  <div class="guideTitle">人多也不慌，这条顺路玩法基本不排队</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">舒适优先</span>
+                    <span class="guideTag">约 4h</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--ai" aria-hidden="true">AI</span>
+                      <span class="guideAuthorName">宣发助手</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="easy" data-guide-cat="深度" aria-label="深度攻略">
+                <div class="guideCover guideCover--easy" aria-hidden="true">
+                  <div class="guideTopline">
+                    <div class="guideSource guideSource--aigc">AI</div>
+                  </div>
+                </div>
+                <div class="guideBody">
+                  <div class="guideTitle">少爬坡少折返，长辈也能轻松走完全程</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">省体力</span>
+                    <span class="guideTag">约 3h</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--ai2" aria-hidden="true">AI</span>
+                      <span class="guideAuthorName">宣发助手</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="photo" data-guide-cat="拍照" aria-label="拍照攻略">
+                <div class="guideCover guideCover--rain" aria-hidden="true"></div>
+                <div class="guideBody">
+                  <div class="guideTitle">彩虹机位我替你踩好了，下午这样拍最出片</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">机位优先</span>
+                    <span class="guideTag">约 4h</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--amy" aria-hidden="true">苗</span>
+                      <span class="guideAuthorName">阿苗旅拍</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="kid" data-guide-cat="亲子" aria-label="亲子攻略">
+                <div class="guideCover guideCover--kid" aria-hidden="true"></div>
+                <div class="guideBody">
+                  <div class="guideTitle">带娃不走回头路，边玩边歇刚刚好</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">亲子友好</span>
+                    <span class="guideTag">约 3h</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--momo" aria-hidden="true">沫</span>
+                      <span class="guideAuthorName">沫沫妈咪</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="depth" data-guide-cat="深度" aria-label="深度攻略">
+                <div class="guideCover guideCover--depth" aria-hidden="true">
+                  <div class="guideTopline">
+                    <div class="guideSource guideSource--aigc">AI</div>
+                  </div>
+                </div>
+                <div class="guideBody">
+                  <div class="guideTitle">不赶景点的人，适合这样慢慢把黄果树玩透</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">慢玩沉浸</span>
+                    <span class="guideTag">约 5h</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--ai3" aria-hidden="true">AI</span>
+                      <span class="guideAuthorName">宣发助手</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="food" data-guide-cat="美食" aria-label="美食攻略">
+                <div class="guideCover guideCover--food" aria-hidden="true"></div>
+                <div class="guideBody">
+                  <div class="guideTitle">逛到这里先补能量，酸汤鱼这样吃不踩雷</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">好吃榜</span>
+                    <span class="guideTag">约 1h</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--amy" aria-hidden="true">食</span>
+                      <span class="guideAuthorName">阿苗食记</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="stay" data-guide-cat="住宿" aria-label="住宿攻略">
+                <div class="guideCover guideCover--stay" aria-hidden="true"></div>
+                <div class="guideBody">
+                  <div class="guideTitle">住一晚更从容，第二天早场看瀑布最舒服</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">住宿建议</span>
+                    <span class="guideTag">过夜游</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--ai2" aria-hidden="true">AI</span>
+                      <span class="guideAuthorName">宣发助手</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="traffic" data-guide-cat="交通" aria-label="交通攻略">
+                <div class="guideCover guideCover--traffic" aria-hidden="true">
+                  <div class="guideTopline">
+                    <div class="guideSource guideSource--aigc">AI</div>
+                  </div>
+                </div>
+                <div class="guideBody">
+                  <div class="guideTitle">接驳车和返程口这样记，少排一轮队</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">接驳</span>
+                    <span class="guideTag">省等待</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--ai3" aria-hidden="true">AI</span>
+                      <span class="guideAuthorName">宣发助手</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <button class="guideCard" data-guide="drive" data-guide-cat="自驾" aria-label="自驾攻略">
+                <div class="guideCover guideCover--drive" aria-hidden="true"></div>
+                <div class="guideBody">
+                  <div class="guideTitle">自驾来黄果树，停车和返程这样安排更稳</div>
+                  <div class="guideMeta">
+                    <span class="guideTag">自驾</span>
+                    <span class="guideTag">停车</span>
+                  </div>
+                  <div class="guideFooter">
+                    <div class="guideAuthor">
+                      <span class="guideAvatar guideAvatar--momo" aria-hidden="true">游</span>
+                      <span class="guideAuthorName">山路慢游者</span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+              <div class="guideEmptyState" id="guideEmptyState" aria-hidden="true">
+                <span class="guideEmptyIcon"><span class="i i-doc" aria-hidden="true"></span></span>
+                <span>暂无此类攻略内容</span>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="view" id="view-notice-list" data-view="noticeList">
+          <div class="noticePage">
+            <div class="noticePageHero">
+              <div class="noticePageTitle">AI公告列表</div>
+              <div class="noticePageSub">景区百事通汇总当前公告、提醒与临时变化</div>
+            </div>
+            <div class="noticeTools" aria-label="公告搜索和筛选">
+              <div class="noticeSearchBox">
+                <input class="noticeSearchInput" id="noticeSearchInput" placeholder="搜索天气、客流、景区公告" autocomplete="off" />
+                <button class="noticeSearchClear" id="noticeSearchClear" aria-label="清空搜索" type="button">
+                  <span class="i i-close" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="noticeFilterRow" role="tablist" aria-label="公告筛选">
+                <button class="noticeFilter isOn" data-notice-filter="all">全部</button>
+                <button class="noticeFilter" data-notice-filter="realtime">实时更新</button>
+                <button class="noticeFilter" data-notice-filter="official">景区公告</button>
+              </div>
+            </div>
+            <div class="noticeList" id="noticeList"></div>
+          </div>
+        </section>
+
+        <section class="view" id="view-notice-detail" data-view="noticeDetail">
+          <div class="noticePage">
+            <div class="noticeDetailCard">
+              <div class="noticeDetailTop">
+              <div class="noticeDetailBadge" id="noticeDetailBadge">AI播报</div>
+              </div>
+              <div class="noticeDetailTitle" id="noticeDetailTitle">公告标题</div>
+              <div class="noticeAiSummary" id="noticeDetailAiSummary"></div>
+              <div class="noticeDetailAuthor" id="noticeDetailAuthor">发布人</div>
+              <div class="noticeDetailMetaRow">
+                <span class="noticeDetailPublishTime" id="noticeDetailPublishTime">发布时间</span>
+                <span class="noticeDetailViews">
+                  <span class="i i-eye" aria-hidden="true"></span>
+                  <span id="noticeDetailViews">0</span>
+                </span>
+              </div>
+              <div class="noticeDetailChips" id="noticeDetailChips"></div>
+            </div>
+            <div class="noticeDetailImageWrap" id="noticeDetailImageWrap" aria-label="公告图片">
+              <img class="noticeDetailImage" id="noticeDetailImage" src="./assets/rank-waterfall-poster.png" alt="" />
+            </div>
+            <div class="noticeDetailSection">
+              <div class="noticeDetailSecTitle">详情内容</div>
+              <div class="noticeDetailTextInput" id="noticeDetailText"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 动线攻略详情（小红书风格） -->
+        <section class="view" id="view-guide-detail" data-view="guideDetail">
+          <div class="notePage" id="guideNotePage">
+            <div class="noteCarousel" id="guideCarousel" aria-label="攻略图片">
+              <div class="noteCarouselTrack" id="guideCarouselTrack"></div>
+              <div class="noteCarouselIndicator" id="guideCarouselIndicator">1/9</div>
+            </div>
+            <div class="noteMain">
+              <div class="noteTitle" id="guideNoteTitle">动线攻略</div>
+              <div class="noteAuthorRow">
+                <div class="noteAuthor">
+                  <div class="noteAvatar" id="guideNoteAvatar" aria-hidden="true">AI</div>
+                  <div class="noteAuthorInfo">
+                    <div class="noteAuthorName" id="guideNoteAuthor">宣发助手</div>
+                    <div class="noteAuthorMeta" id="guideNoteMeta"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="noteChips" id="guideNoteChips"></div>
+
+              <div class="routeSummary" id="guideRouteSummary"></div>
+
+              <div class="noteSection routePlanSection">
+                <div class="noteSectionTitle">推荐动线</div>
+                <div class="routeTimeline" id="guideRouteTimeline"></div>
+              </div>
+
+              <div class="noteSection liveTipSection">
+                <div class="noteSectionTitle">此刻提醒</div>
+                <div class="liveTipList" id="guideLiveTips"></div>
+              </div>
+
+              <div class="guideAuditResult" id="guideAuditResult" style="display:none"></div>
+
+              <div class="noteSection noteTextSection">
+                <div class="noteSectionTitle" id="guideContentTitle">AI生成</div>
+                <div class="noteTextInput" id="guideNoteText"></div>
+              </div>
+
+              <div class="noteUpdate" id="guideNoteUpdate">发布时间：刚刚</div>
+
+            </div>
+
+            <div class="noteBottomBar">
+              <div class="noteBottomRowTop">
+                <button class="noteIconBtn" id="guideNoteLike" aria-label="点赞"><span class="i i-like" aria-hidden="true"></span><span id="guideLikeCount">0</span></button>
+                <button class="noteIconBtn" id="guideNoteCollect" aria-label="收藏"><span class="i i-save" aria-hidden="true"></span><span id="guideCollectCount">0</span></button>
+                <button class="noteIconBtn" id="guideNoteShare" aria-label="分享"><span class="i i-share" aria-hidden="true"></span><span id="guideShareCount">0</span></button>
+                <button class="noteIconBtn guideAuditBottomEdit" id="guideAuditBottomEdit" type="button" style="display:none"><span class="i i-edit" aria-hidden="true"></span><span>再次编辑提交</span></button>
+                <button class="noteIconBtn guidePermissionBtn" id="guideNotePermission" aria-label="编辑攻略"><span class="i i-edit" aria-hidden="true"></span><span id="guidePermissionText">编辑</span></button>
+                <button class="notePrimaryBtn" id="guideNoteStart">动线游览</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 发布攻略 -->
+        <section class="view" id="view-guide-upload" data-view="guideUpload">
+          <div class="guideUploadPage">
+            <div class="uploadBlock">
+              <div class="uploadFieldHead">
+                <label class="uploadLabel" for="guideUploadTitle">攻略标题 <span class="uploadRequired">*</span></label>
+                <span class="uploadLimit" id="guideUploadTitleCount">0/20</span>
+              </div>
+              <input class="uploadInput" id="guideUploadTitle" type="text" maxlength="20" placeholder="20字内，说清这条攻略亮点" />
+
+              <div class="uploadFieldHead">
+                <label class="uploadLabel" for="guideUploadContent">正文内容 <span class="uploadRequired">*</span></label>
+                <span class="uploadLimit" id="guideUploadContentCount">0/200</span>
+              </div>
+              <textarea class="uploadTextarea" id="guideUploadContent" maxlength="200" placeholder="写下你的路线、避坑点、拍照机位、排队情况和适合人群"></textarea>
+            </div>
+
+            <div class="uploadBlock uploadMediaBlock">
+              <div class="uploadBlockHead">
+                <div>
+                  <div class="uploadBlockTitle">上传图片 <span class="uploadRequired">*</span></div>
+                  <div class="uploadBlockHint">上传图片，最多上传10 张，首图默认为封面</div>
+                </div>
+                <div class="uploadCount" id="uploadImageCount">0/10</div>
+              </div>
+              <label class="uploadPicker" for="guideUploadImages">
+                <input id="guideUploadImages" type="file" accept="image/*" multiple />
+                <span class="uploadPickerIcon">
+                  <span class="i i-cam" aria-hidden="true"></span>
+                </span>
+                <span class="uploadPickerText">上传图片</span>
+                <span class="uploadPickerHint">支持多选</span>
+              </label>
+              <div class="uploadPreviewRail" id="uploadPreviewRail" aria-label="图片预览"></div>
+            </div>
+
+            <div class="uploadBlock">
+              <div class="uploadFieldHead">
+                <div class="uploadLabel">所属类型 <span class="uploadRequired">*</span></div>
+              </div>
+              <div class="uploadTypeGroup" id="guideUploadTypeGroup" role="radiogroup" aria-label="所属类型">
+                <button class="uploadTypeOption" data-guide-type="精华" type="button" role="radio" aria-checked="false">精华</button>
+                <button class="uploadTypeOption" data-guide-type="深度" type="button" role="radio" aria-checked="false">深度</button>
+                <button class="uploadTypeOption" data-guide-type="亲子" type="button" role="radio" aria-checked="false">亲子</button>
+                <button class="uploadTypeOption" data-guide-type="美食" type="button" role="radio" aria-checked="false">美食</button>
+                <button class="uploadTypeOption" data-guide-type="住宿" type="button" role="radio" aria-checked="false">住宿</button>
+                <button class="uploadTypeOption" data-guide-type="拍照" type="button" role="radio" aria-checked="false">拍照</button>
+              </div>
+            </div>
+
+            <div class="uploadBlock">
+              <div class="uploadFieldHead">
+                <div class="uploadLabel">标签</div>
+                <span class="uploadLimit" id="guideUploadTagCount">0/4</span>
+              </div>
+              <div class="uploadTagPreview" id="guideUploadTagPreview">
+                <button class="uploadTagAddChip" id="guideUploadTagOpen" type="button">
+                  <span class="i i-plus" aria-hidden="true"></span>
+                  <span>添加标签</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="uploadBottomBar">
+              <button class="uploadSubmitBtn" id="guideUploadSubmit">发布攻略</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 此刻建议详情 -->
+        <section class="view" id="view-suggest-detail" data-view="suggestDetail">
+          <div class="notePage suggestNotePage" id="suggestNotePage">
+            <div class="noteCarousel" id="suggestCarousel" aria-label="此刻建议图片">
+              <div class="noteCarouselTrack" id="suggestCarouselTrack"></div>
+              <div class="noteCarouselIndicator" id="suggestCarouselIndicator">1/9</div>
+            </div>
+            <div class="noteMain">
+              <div class="noteTitle" id="suggestNoteTitle">此刻建议</div>
+              <div class="noteAuthorRow suggestAuthorRow">
+                <div class="noteAuthor">
+                  <div class="noteAvatar isAI" id="suggestNoteAvatar" aria-hidden="true">AI</div>
+                  <div class="noteAuthorInfo">
+                    <div class="noteAuthorName" id="suggestNoteAuthor">宣发助手</div>
+                  </div>
+                </div>
+              </div>
+              <div class="noteSection suggestTextSection">
+                <div class="noteTextInput" id="suggestNoteText"></div>
+              </div>
+              <div class="noteUpdate" id="suggestNoteUpdate">发布时间：刚刚</div>
+            </div>
+            <div class="noteBottomBar suggestBottomBar">
+              <button class="notePrimaryBtn suggestAskBtn" id="suggestAskBtn">
+                <span class="suggestAskAvatar" aria-hidden="true"><img src="./assets/agent-mascot.png" alt="" /></span>
+                <span>问问我</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 标记点指数榜详情（小红书风格） -->
+        <section class="view" id="view-rank-detail" data-view="rankDetail">
+          <div class="notePage" id="rankNotePage">
+            <div class="noteCarousel" id="rankCarousel" aria-label="标记点图片">
+              <div class="noteCarouselTrack" id="rankCarouselTrack"></div>
+              <div class="noteCarouselIndicator" id="rankCarouselIndicator">1/9</div>
+            </div>
+            <div class="noteMain">
+              <div class="noteTitleRow">
+                <div class="noteTitle" id="rankNoteTitle">标记点详情</div>
+                <button class="noteTitleAudioBtn" id="rankNoteAudio" aria-label="听讲解">
+                  <span class="i i-headset" aria-hidden="true"></span>
+                </button>
+              </div>
+              <div class="noteAuthorRow">
+                <div class="noteAuthor">
+                  <div class="noteAvatar isAI" id="rankNoteAvatar" aria-hidden="true">AI</div>
+                  <div class="noteAuthorInfo">
+                    <div class="noteAuthorName" id="rankNoteAuthor">宣发助手</div>
+                    <div class="noteAuthorMeta" id="rankNoteMeta"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="noteChips" id="rankNoteChips"></div>
+
+              <div class="noteSection noteTextSection rankTextSection">
+                <div class="noteTextInput" id="rankNoteText"></div>
+              </div>
+
+              <div class="noteUpdate" id="rankNoteUpdate">发布时间：刚刚</div>
+
+            </div>
+
+            <div class="noteBottomBar">
+              <div class="noteBottomRowTop">
+                <button class="noteIconBtn" id="rankNoteLike" aria-label="点赞"><span class="i i-like" aria-hidden="true"></span><span id="rankLikeCount">0</span></button>
+                <button class="noteIconBtn" id="rankNoteCollect" aria-label="收藏"><span class="i i-save" aria-hidden="true"></span><span id="rankCollectCount">0</span></button>
+                <button class="noteIconBtn" id="rankNoteShare" aria-label="分享"><span class="i i-share" aria-hidden="true"></span><span id="rankShareCount">0</span></button>
+                <button class="notePrimaryBtn" id="rankNoteGo">去这里</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 个人中心 -->
+        <section class="view" id="view-profile" data-view="profile">
+          <div class="profilePage">
+            <div class="profileHero">
+              <div class="profileAvatar" aria-hidden="true">
+                <span class="i i-user"></span>
+              </div>
+              <div class="profileName">用户nASO</div>
+            </div>
+
+            <div class="profileMenuCard">
+              <button class="profileMenuItem" type="button">
+                <span class="profileMenuIcon"><span class="i i-doc" aria-hidden="true"></span></span>
+                <span>我的贡献</span>
+                <span class="profileChevron">›</span>
+              </button>
+              <button class="profileMenuItem" type="button">
+                <span class="profileMenuIcon"><span class="i i-doc" aria-hidden="true"></span></span>
+                <span>协议规则</span>
+                <span class="profileChevron">›</span>
+              </button>
+              <button class="profileMenuItem" type="button">
+                <span class="profileMenuIcon"><span class="i i-headset" aria-hidden="true"></span></span>
+                <span>客服电话</span>
+                <span class="profileChevron">›</span>
+              </button>
+              <button class="profileMenuItem" type="button">
+                <span class="profileMenuIcon"><span class="i i-ticket" aria-hidden="true"></span></span>
+                <span>我的订单</span>
+                <span class="profileChevron">›</span>
+              </button>
+              <button class="profileMenuItem" type="button">
+                <span class="profileMenuIcon"><span class="i i-pin" aria-hidden="true"></span></span>
+                <span>收件人管理</span>
+                <span class="profileChevron">›</span>
+              </button>
+            </div>
+
+            <div class="profileQuickGrid" aria-label="个人内容入口">
+              <button class="profileQuick" data-profile-list="published" type="button">
+                <span class="profileQuickIcon"><span class="i i-doc" aria-hidden="true"></span></span>
+                <span>我发布的攻略</span>
+              </button>
+              <button class="profileQuick" data-profile-list="collects" type="button">
+                <span class="profileQuickIcon"><span class="i i-save" aria-hidden="true"></span></span>
+                <span>我的收藏</span>
+              </button>
+              <button class="profileQuick" data-profile-list="likes" type="button">
+                <span class="profileQuickIcon"><span class="i i-like" aria-hidden="true"></span></span>
+                <span>我的赞</span>
+              </button>
+              <button class="profileQuick" data-profile-list="shares" type="button">
+                <span class="profileQuickIcon"><span class="i i-share" aria-hidden="true"></span></span>
+                <span>我的分享</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 个人内容列表 -->
+        <section class="view" id="view-profile-list" data-view="profileList">
+          <div class="profileListPage">
+            <div class="profileListHead">
+              <div class="profileListTitle" id="profileListTitle">我的收藏</div>
+              <div class="profileListSub" id="profileListSub">点击内容可进入详情页</div>
+            </div>
+            <div class="profileStatusTabs" id="profileStatusTabs" aria-label="发布状态筛选">
+              <button class="profileStatusTab isOn" data-profile-status="public" type="button">公开</button>
+              <button class="profileStatusTab" data-profile-status="private" type="button">已下线</button>
+            </div>
+            <div class="profileContentList" id="profileContentList"></div>
+          </div>
+        </section>
+
+        <section class="view" id="view-goods" data-view="goods">
+          <div class="goodsPage">
+            <div class="goodsHero">
+              <div class="goodsHeroTitle">景区优选</div>
+              <div class="goodsHeroDesc">门票直购、景区文创、限定伴手礼都在这里</div>
+            </div>
+
+            <div class="goodsTabs" role="tablist" aria-label="景区优选分类">
+              <button class="goodsTab isOn" data-goods-tab="self">自营好物</button>
+              <button class="goodsTab" data-goods-tab="other">其他精选</button>
+            </div>
+
+            <div class="goodsMasonry" id="goodsMasonry">
+              <article class="goodsProduct" data-goods-group="self">
+                <div class="goodsThumb goodsThumb--ticket"></div>
+                <div class="goodsInfo">
+                  <div class="goodsName">黄果树景区门票</div>
+                  <div class="goodsSub">官方直售 · 支持快速入园</div>
+                  <div class="goodsMeta">
+                    <span class="goodsPrice">¥160</span>
+                    <button class="goodsBuyBtn" data-buy-item="黄果树景区门票">立即购买</button>
+                  </div>
+                </div>
+              </article>
+              <article class="goodsProduct" data-goods-group="self">
+                <div class="goodsThumb goodsThumb--combo"></div>
+                <div class="goodsInfo">
+                  <div class="goodsName">门票+讲解套票</div>
+                  <div class="goodsSub">含人工讲解服务，更适合初次到访</div>
+                  <div class="goodsMeta">
+                    <span class="goodsPrice">¥228</span>
+                    <button class="goodsBuyBtn" data-buy-item="门票+讲解套票">去下单</button>
+                  </div>
+                </div>
+              </article>
+              <article class="goodsProduct" data-goods-group="self">
+                <div class="goodsThumb goodsThumb--badge"></div>
+                <div class="goodsInfo">
+                  <div class="goodsName">瀑布徽章礼盒</div>
+                  <div class="goodsSub">限定包装，适合作为打卡纪念</div>
+                  <div class="goodsMeta">
+                    <span class="goodsPrice">¥49</span>
+                    <button class="goodsBuyBtn" data-buy-item="瀑布徽章礼盒">去逛逛</button>
+                  </div>
+                </div>
+              </article>
+              <article class="goodsProduct" data-goods-group="other">
+                <div class="goodsThumb goodsThumb--fridge"></div>
+                <div class="goodsInfo">
+                  <div class="goodsName">黄果树冰箱贴</div>
+                  <div class="goodsSub">景区限定图案，轻巧好带走</div>
+                  <div class="goodsMeta">
+                    <span class="goodsPrice">¥29</span>
+                    <button class="goodsBuyBtn" data-buy-item="黄果树冰箱贴">去逛逛</button>
+                  </div>
+                </div>
+              </article>
+              <article class="goodsProduct" data-goods-group="other">
+                <div class="goodsThumb goodsThumb--tea"></div>
+                <div class="goodsInfo">
+                  <div class="goodsName">贵州山野茶礼</div>
+                  <div class="goodsSub">伴手礼热销款，适合送亲友</div>
+                  <div class="goodsMeta">
+                    <span class="goodsPrice">¥88</span>
+                    <button class="goodsBuyBtn" data-buy-item="贵州山野茶礼">立即购买</button>
+                  </div>
+                </div>
+              </article>
+              <article class="goodsProduct" data-goods-group="other">
+                <div class="goodsThumb goodsThumb--doll"></div>
+                <div class="goodsInfo">
+                  <div class="goodsName">苗绣娃娃挂件</div>
+                  <div class="goodsSub">民族元素小挂件，适合做旅途纪念</div>
+                  <div class="goodsMeta">
+                    <span class="goodsPrice">¥39</span>
+                    <button class="goodsBuyBtn" data-buy-item="苗绣娃娃挂件">去逛逛</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- 趣游 / 伴游地图 -->
+        <section class="view" id="view-tour" data-view="tour">
+          <div class="tourHeader">
+            <div class="tourTitleRow">
+              <button class="tourBackBtn" id="tourBackBtn" aria-label="返回">
+                <span class="i i-back" aria-hidden="true"></span>
+              </button>
+              <div class="tourTitle">伴游地图</div>
+              <div class="tourWindowPill" aria-label="更多操作">
+                <span class="i i-dots" aria-hidden="true"></span>
+                <span class="tourWindowDivider"></span>
+                <span class="i i-close" aria-hidden="true"></span>
+                <span class="tourWindowDivider"></span>
+                <span class="i i-compass" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="tourSearchRow">
+              <button class="tourSearch" id="btnTourSearch" aria-label="搜索目的地或服务">
+                <span class="tourSearchEmoji" aria-hidden="true">🛶</span>
+                <span>请输入</span>
+                <span class="i i-chevron-down" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div class="tourModeSeg" role="tablist" aria-label="趣游模式切换">
+              <button class="tourModeBtn isOn" data-tour-mode="route">推荐路线</button>
+              <button class="tourModeBtn" data-tour-mode="nearby">标记点服务</button>
+            </div>
+
+            <div class="tourRouteStrip" id="tourRouteStrip" aria-label="推荐路线">
+              <button class="routeChip isOn" data-route="classic">精华半日</button>
+              <button class="routeChip" data-route="easy">轻松路线</button>
+              <button class="routeChip" data-route="photo">出片路线</button>
+            </div>
+
+            <div class="chipBar tourChips isHidden" id="tourChips" role="toolbar" aria-label="就近服务筛选">
+              <button class="chip isOn" data-layer="spot"><span aria-hidden="true">🌲</span><span>景点</span></button>
+              <button class="chip" data-layer="food"><span aria-hidden="true">🥘</span><span>餐饮</span></button>
+              <button class="chip" data-layer="wc"><span aria-hidden="true">🚻</span><span>卫生间</span></button>
+            </div>
+          </div>
+
+          <div class="mapCanvas" id="mapCanvas" aria-label="景区地图画布">
+            <div class="mapLand" aria-hidden="true"></div>
+            <div class="mapRiver" aria-hidden="true"></div>
+            <div class="mapRoad mapRoadMain" aria-hidden="true"></div>
+            <div class="mapRoad mapRoadThin" aria-hidden="true"></div>
+
+            <!-- Route line -->
+            <svg class="routeSvg" viewBox="0 0 400 700" aria-hidden="true">
+              <path
+                class="routePath"
+                d="M80,640 C110,560 80,520 120,470 C170,410 150,370 190,330 C230,290 230,230 280,190 C330,150 340,110 320,70"
+              />
+            </svg>
+
+            <!-- Markers -->
+            <button class="marker m-spot" style="left: 52%; top: 44%" data-poi="poi-guanpu" aria-label="观瀑台">
+              <span class="markerPulse" aria-hidden="true"></span>
+              <span class="markerCore" aria-hidden="true"></span>
+            </button>
+            <button class="marker m-spot" style="left: 47%; top: 33%" data-poi="poi-tianxing" aria-label="天星桥">
+              <span class="markerPulse" aria-hidden="true"></span>
+              <span class="markerCore" aria-hidden="true"></span>
+            </button>
+            <button class="marker m-food" style="left: 42%; top: 58%" data-poi="poi-suantang" aria-label="酸汤鱼">
+              <span class="markerPulse" aria-hidden="true"></span>
+              <span class="markerCore" aria-hidden="true"></span>
+            </button>
+            <button class="marker m-wc" style="left: 61%; top: 59%" data-poi="poi-wc" aria-label="卫生间">
+              <span class="markerPulse" aria-hidden="true"></span>
+              <span class="markerCore" aria-hidden="true"></span>
+            </button>
+
+            <div class="tourPoiCard" id="tourPoiCard" aria-hidden="true">
+              <div class="tourPoiBadge">景点</div>
+              <img class="tourPoiImg" src="./assets/guide-depth-views.png" alt="" />
+              <div class="tourPoiTitle" id="tourPoiCardTitle">大瀑布观景台</div>
+              <div class="tourPoiSub" id="tourPoiCardSub">大瀑布观景点</div>
+            </div>
+            <div class="tourTreePin" aria-hidden="true">🌲🌲</div>
+
+            <div class="tourAudioBubble" id="tourAudioBubble" aria-live="polite">
+              <span class="tourAudioPlay"><span class="i i-audio" aria-hidden="true"></span></span>
+              <span id="tourAudioText">这里是适合停留听讲解的位置。</span>
+            </div>
+
+            <img class="tourGuideMascot" src="./assets/agent-mascot.png" alt="" />
+          </div>
+
+          <!-- Bottom sheet -->
+          <div class="sheetOverlay" id="sheetOverlay" aria-hidden="true"></div>
+          <aside class="sheet" id="sheet" aria-label="点位信息">
+            <div class="sheetHandle" id="sheetHandle" aria-hidden="true"></div>
+            <button class="tourSheetClose" id="tourSheetClose" aria-label="关闭点位信息">
+              <span class="i i-close" aria-hidden="true"></span>
+            </button>
+            <div class="sheetBody">
+              <div class="poiHead">
+                <div class="poiTitle" id="poiTitle">观瀑台</div>
+                <div class="poiMeta" id="poiMeta">步行 12 分钟 · 人少 · 出片</div>
+              </div>
+              <div class="poiActions">
+                <button class="pillBtn" id="poiNav"><span class="i i-nav" aria-hidden="true"></span>去这里</button>
+                <button class="pillBtn" id="poiAudio"><span class="i i-audio" aria-hidden="true"></span>听讲解</button>
+                <button class="pillBtn" id="poiSave"><span class="i i-save" aria-hidden="true"></span>收藏</button>
+              </div>
+              <div class="poiTabs" role="tablist" aria-label="点位信息切换">
+                <button class="poiTab isOn" data-poi-tab="intro">讲解</button>
+                <button class="poiTab" data-poi-tab="tips">攻略</button>
+                <button class="poiTab" data-poi-tab="ugc">实拍</button>
+              </div>
+
+              <div class="poiPanel isOn" id="panel-intro">
+                <div class="p">
+                  观瀑台是黄果树瀑布主观景点位之一，近距离能感受水雾和声浪。雨后水量更大，建议带上轻便雨衣。
+                </div>
+                <div class="tourSheetPhotos" aria-label="点位图片">
+                  <img src="./assets/guide-depth-views.png" alt="" />
+                  <img src="./assets/suggest-waterfall.png" alt="" />
+                  <img src="./assets/guide-kid-waterfall.png" alt="" />
+                </div>
+                <div class="tagRow">
+                  <span class="tag">必看</span>
+                  <span class="tag">近景</span>
+                  <span class="tag">水雾大</span>
+                  <span class="tag">可听讲解</span>
+                </div>
+              </div>
+              <div class="poiPanel" id="panel-tips">
+                <div class="stepList">
+                  <div class="step">
+                    <div class="stepNo">1</div>
+                    <div class="stepTxt">先走右侧栈道上观景台，避开人群回流。</div>
+                  </div>
+                  <div class="step">
+                    <div class="stepNo">2</div>
+                    <div class="stepTxt">拍照建议：镜头略低，瀑布占画面 2/3 更震撼。</div>
+                  </div>
+                  <div class="step">
+                    <div class="stepNo">3</div>
+                    <div class="stepTxt">停留 15–20 分钟后顺路去「天星桥」更舒服。</div>
+                  </div>
+                </div>
+              </div>
+              <div class="poiPanel" id="panel-ugc">
+                <div class="ugcMini">
+                  <div class="ugcThumb t1" aria-hidden="true"></div>
+                  <div class="ugcMiniTxt">
+                    <div class="uT">游客实拍 · 10 分钟前</div>
+                    <div class="uD">雾刚散，逆光会有彩虹概率。</div>
+                  </div>
+                </div>
+                <div class="ugcMini">
+                  <div class="ugcThumb t2" aria-hidden="true"></div>
+                  <div class="ugcMiniTxt">
+                    <div class="uT">游客提醒</div>
+                    <div class="uD">这段路湿滑，扶手很好用。</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="sheetAsk">
+                <input class="sheetInput" id="sheetAskInput" placeholder="在这里问：附近厕所在哪？" />
+                <button class="sheetSend" id="sheetAskSend" aria-label="发送问题"><span class="i i-send" aria-hidden="true"></span></button>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <!-- 点位导航地图 -->
+        <section class="view" id="view-map-nav" data-view="mapNav">
+          <div class="navMapPage" aria-label="地图导航">
+            <div class="navMapBase" aria-hidden="true">
+              <div class="navGreen navGreenA"></div>
+              <div class="navGreen navGreenB"></div>
+              <div class="navRiver navRiverMain"></div>
+              <div class="navRiver navRiverBranch"></div>
+              <div class="navRoad navRoadA"></div>
+              <div class="navRoad navRoadB"></div>
+              <div class="navRoad navRoadC"></div>
+              <div class="navRoad navRoadD"></div>
+              <div class="navRoad navRoadE"></div>
+              <div class="navRoad navRoadF"></div>
+              <div class="navHighway"></div>
+
+              <div class="navMapStatus">
+                <div class="navMapTime">14:20 <span class="navMapArrow">▲</span></div>
+                <div class="navMapPlace">下酒吧</div>
+              </div>
+              <div class="navSignal" aria-hidden="true">
+                <span></span><span></span><span></span><span></span>
+                <b></b>
+              </div>
+              <button class="navMapBack" id="mapNavBackBtn" aria-label="返回">
+                <span class="i i-back" aria-hidden="true"></span>
+              </button>
+
+              <span class="navLabel navLabelHotel">鑫益闲酒店</span>
+              <span class="navLabel navLabelTianxiang"><i>丘</i>天香亭</span>
+              <span class="navLabel navLabelLupo">陆坡塘景区</span>
+              <span class="navLabel navLabelDezhen"><i>丘</i>得真亭</span>
+              <span class="navLabel navLabelKangzhan"><i>丘</i>抗战情缘</span>
+              <span class="navLabel navLabelGurong"><i>丘</i>古榕园</span>
+              <span class="navLabel navLabelShuilian"><i>丘</i>水帘洞</span>
+              <span class="navLabel navLabelPark"><i>丘</i>黄果树碑林公园</span>
+              <span class="navLabel navLabelWaterfall"><i>丘</i>大瀑布</span>
+              <span class="navLabel navLabelNight"><i>丘</i>黄果树夜游<br />前广场</span>
+              <span class="navLabel navLabelSchool"><i class="school">舍</i>白水镇中学</span>
+              <span class="navLabel navLabelHuashi">滑石哨景区 <i>丘</i></span>
+              <span class="navLabel navLabelRoad">轩辕路</span>
+              <span class="navLabel navLabelRiver">白水河</span>
+              <span class="navLabel navLabelMainRoad">贵黄公路</span>
+              <span class="navLabel navLabelTarget"><i>丘</i><span id="mapNavPinLabel">观瀑台</span></span>
+
+              <div class="navMapPin" aria-hidden="true"><span></span></div>
+              <button class="navLocateBtn" aria-label="定位当前位置"></button>
+              <button class="navMusicBtn" aria-label="播放地图语音">♪</button>
+              <button class="navCameraBtn" aria-label="拍照">▣</button>
+              <div class="navTencent">腾讯地图</div>
+            </div>
+
+            <aside class="navInfoSheet" aria-label="导航信息">
+              <div class="navSheetHandle"></div>
+              <div class="navSheetTitle" id="mapNavTitle">大瀑布观景台</div>
+              <div class="navSheetMeta">
+                <span>距你 123 公里</span>
+                <span class="navDrive">1小时47分钟</span>
+                <button type="button">更多</button>
+              </div>
+              <div class="navSheetActions">
+                <button type="button" class="navActionBtn"><span class="i i-nav" aria-hidden="true"></span>导航</button>
+                <button type="button" class="navActionBtn"><span class="navCarIcon" aria-hidden="true"></span>打车</button>
+                <button type="button" class="navActionBtn"><span class="i i-save" aria-hidden="true"></span>收藏</button>
+                <button type="button" class="navActionBtn navActionMore" aria-label="更多">···</button>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Bottom Tabs -->
+      <nav class="tabs" aria-label="底部导航">
+        <div class="tabPill" role="presentation">
+          <button class="tab isOn" data-go="agent" aria-label="智能体">
+            <span class="tabIconWrap tabIconWrap--avatar" aria-hidden="true">
+              <img class="tabAvatar" src="./assets/agent-mascot.png" alt="" />
+              <span class="dockToggleBadge" aria-hidden="true">
+                <span class="i i-swap" aria-hidden="true"></span>
+              </span>
+            </span>
+            <span class="tabText">智能体</span>
+          </button>
+          <button class="tab" data-go="now" aria-label="此刻">
+            <span class="tabIconWrap" aria-hidden="true">
+              <svg class="tabIconSvg" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.5"></circle>
+                <path d="M14.8 9.2 13 14l-4.8 1.8L10 11z"></path>
+              </svg>
+            </span>
+            <span class="tabText">此刻</span>
+          </button>
+          <button class="tab" data-go="tour" aria-label="趣游">
+            <span class="tabIconWrap" aria-hidden="true">
+              <svg class="tabIconSvg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3.5 6.5 8.8 4l6.4 2.2L20.5 4v13.5L15.2 20l-6.4-2.2-5.3 2.2z"></path>
+                <path d="M8.8 4v13.8"></path>
+                <path d="M15.2 6.2V20"></path>
+              </svg>
+            </span>
+            <span class="tabText">趣游</span>
+          </button>
+        </div>
+
+        <!-- 首次进入：放大角色趴在底导上 -> 2秒后缩回到第一个Tab -->
+        <div class="mascotIntro" id="mascotIntro" aria-hidden="true">
+          <div class="mascotWiggle">
+            <div class="mascotBlink">
+              <img src="./assets/agent-mascot.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <button class="prototypeRemarkBtn" id="prototypeRemarkBtn" type="button" aria-label="打开备注说明">备注</button>
+    <div class="prototypeRemarkPanel" id="prototypeRemarkPanel" aria-hidden="true">
+      <div class="prototypeRemarkScrim" id="prototypeRemarkScrim"></div>
+      <div class="prototypeRemarkCard" role="dialog" aria-modal="true" aria-label="备注说明">
+        <div class="prototypeRemarkHead">
+          <div class="prototypeRemarkTitle">备注说明</div>
+          <button class="prototypeRemarkClose" id="prototypeRemarkClose" type="button" aria-label="关闭备注">
+            <span class="i i-close" aria-hidden="true"></span>
+          </button>
+        </div>
+        <textarea class="prototypeRemarkInput" id="prototypeRemarkInput" placeholder="在这里填写页面备注、交互说明或评审记录"></textarea>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="modal" aria-hidden="true">
+      <div class="modalScrim" id="modalScrim"></div>
+      <div class="modalCard" id="modalCard" role="dialog" aria-modal="true" aria-label="弹窗详情">
+        <div class="modalTop">
+          <div class="modalTitle" id="modalTitle">详情</div>
+          <button class="iconBtn soft" id="modalClose" aria-label="关闭">
+            <span class="i i-close" aria-hidden="true"></span>
+          </button>
+        </div>
+        <div class="modalBody" id="modalBody"></div>
+      </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="tagSheetOverlay" id="tagSheetOverlay" aria-hidden="true"></div>
+    <div class="tagSheet" id="tagSheet" role="dialog" aria-modal="true" aria-label="添加标签">
+      <div class="tagSheetHandle" aria-hidden="true"></div>
+      <div class="tagSheetHead">
+        <div>
+          <div class="tagSheetTitle">添加标签</div>
+          <div class="tagSheetHint">最多添加 4 个，每个不超过 5 个字</div>
+        </div>
+        <button class="tagSheetClose" id="tagSheetClose" type="button" aria-label="关闭">
+          <span class="i i-close" aria-hidden="true"></span>
+        </button>
+      </div>
+      <div class="tagSheetInputRow">
+        <input class="uploadInput" id="guideUploadTagInput" type="text" maxlength="5" placeholder="输入标签" />
+        <button class="tagSheetAdd" id="guideUploadTagConfirm" type="button">添加</button>
+      </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./app.js?v=20260615-1259"></script>
+  </body>
+</html>
