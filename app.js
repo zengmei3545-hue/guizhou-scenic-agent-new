@@ -186,8 +186,8 @@ function syncTopbarByView() {
       activeView === "now" ? "此刻" :
       activeView === "tour" ? "伴游地图" :
       activeView === "mapNav" ? "地图导航" :
-      activeView === "noticeList" ? "AI播报" :
-      activeView === "noticeDetail" ? "播报详情" :
+      activeView === "noticeList" ? "智能快讯" :
+      activeView === "noticeDetail" ? "快讯详情" :
       activeView === "guideDetail" ? "动线攻略" :
       activeView === "guideUpload" ? "发布攻略" :
       activeView === "suggestDetail" ? "建议详情" :
@@ -382,7 +382,7 @@ const aiNoticeItems = [
     author: "景区百事通",
     title: "当前 21°C，主瀑附近水雾偏大，体感会更凉。",
     summary: "建议带轻薄外套，靠近瀑布时可备雨衣或防水袋。",
-    chips: ["天气：21°C", "建议：雨衣可备"],
+    chips: ["轻薄外套", "可备雨具"],
     image: "./assets/rank-waterfall-wide.png",
     body: "当前景区温度约 21°C，主瀑附近水雾偏大，停留时间较长时体感会比入口区域更凉。若计划近距离观瀑或拍照，建议准备轻薄外套，并给手机、相机做好简单防水。",
     impact: "影响区域：主瀑近景区、临水步道。<br>影响表现：体感偏凉、镜头容易挂水雾。"
@@ -395,7 +395,7 @@ const aiNoticeItems = [
     author: "景区百事通",
     title: "14:30 后观瀑台人流预计上升，可能影响主瀑观景体验。",
     summary: "主瀑区域预计出现短时等候，适合提前完成近景观瀑与拍照停留。",
-    chips: ["依据：客流趋势", "影响：主瀑等候变长"],
+    chips: ["先观瀑", "慢慢逛"],
     image: "./assets/now-banner-waterfall.png",
     body: "根据当前客流热度与进场节奏，14:30 后观瀑台主瀑区域预计出现更明显的人群聚集。若你更看重观景体验和停留时长，建议尽量避开该时段再进入主瀑近景区域。",
     impact: "影响区域：观瀑台主瀑近景区。<br>影响表现：排队时间变长、拍照停留空间减少。"
@@ -454,18 +454,18 @@ const modalContent = {
       "提示：这是原型演示，规则为模拟逻辑。",
   },
   aiBriefInfo: {
-    title: "AI播报 · 影响说明",
+    title: "智能快讯 · 影响说明",
     body:
       "14:30 后观瀑台人流预计上升，主瀑区域可能出现短时等候。<br><br>" +
       "影响：主瀑观景体验下降、拍照停留时间变短。<br><br>" +
       "你可以继续查看“此刻建议”获取此时更合适的游玩顺序。",
   },
   rankInfo: {
-    title: "榜单规则说明",
+    title: "精选推送说明",
     body:
-      "“标记点指数榜”用于帮助你快速判断此刻更值得去哪里。<br><br>" +
-      "指数参考：<b>游客打卡热度</b>（实拍/分享）、<b>AI推荐</b>（基于时间/客流/距离的判断）。<br><br>" +
-      "提示：带 AI 标识的内容为智能体生成/汇总，其余为游客实拍内容。",
+      "“精选推送”用于展示景区当前重点推荐的活动、必玩点位和好吃内容。<br><br>" +
+      "内容参考：<b>官方配置</b>、<b>当前时间</b>、<b>客流状态</b>与游客常用需求，不表达商户或景点的排名高低。<br><br>" +
+      "提示：带 AI 标识的内容为智能体生成/汇总，官方推荐内容来自景区运营配置。",
   },
   tips: {
     title: "分流建议",
@@ -644,7 +644,6 @@ function renderAiNoticeList() {
         </div>
         <div class="noticeItemAuthor">${item.author || "景区百事通"}</div>
         <div class="noticeItemTitle">${item.title}</div>
-        ${item.group === "official" && item.aiSummary ? `<div class="noticeItemAiSummary"><span>AI总结</span>${item.aiSummary}</div>` : ""}
         <div class="noticeItemDesc">${item.summary}</div>
       </div>
     </button>
@@ -700,8 +699,8 @@ function renderAiNoticeDetail(id = currentAiNoticeId, shouldCountView = true) {
   $("#noticeDetailTitle").textContent = d.title;
   const aiSummary = $("#noticeDetailAiSummary");
   if (aiSummary) {
-    aiSummary.style.display = isOfficial && d.aiSummary ? "" : "none";
-    aiSummary.innerHTML = isOfficial && d.aiSummary ? `<span>AI总结</span>${d.aiSummary}` : "";
+    aiSummary.style.display = "none";
+    aiSummary.innerHTML = "";
   }
   $("#noticeDetailAuthor").textContent = `发布人：${d.author || "景区百事通"}`;
   $("#noticeDetailPublishTime").textContent = `发布时间：${d.time || "刚刚"}`;
@@ -881,7 +880,7 @@ const guideNoteData = {
     avatar: "食",
     source: "ugc",
     cover: "./assets/now-banner-waterfall.png",
-    chips: ["美食", "约 1h", "就近补给", "好吃榜"],
+    chips: ["美食", "约 1h", "就近补给", "好吃"],
     summary: { time: "约 1 小时", distance: "800m", stops: "2 个补给点", fit: "午餐/晚餐" },
     insight: "当前餐饮点排队不长，适合错峰吃完再回到观瀑路线，避免下午体力掉得太快。",
     points: [
@@ -1449,7 +1448,7 @@ function syncUploadTextCount() {
   const titleCount = $("#guideUploadTitleCount");
   const contentCount = $("#guideUploadContentCount");
   if (titleCount) titleCount.textContent = `${title.length}/20`;
-  if (contentCount) contentCount.textContent = `${content.length}/200`;
+  if (contentCount) contentCount.textContent = `${content.length}/${uploadContentLimit}`;
 }
 
 function openGuideUploadForEdit(guideId, publishItem) {
@@ -1460,7 +1459,7 @@ function openGuideUploadForEdit(guideId, publishItem) {
   const titleInput = $("#guideUploadTitle");
   const contentInput = $("#guideUploadContent");
   if (titleInput) titleInput.value = (d.title || "").slice(0, 20);
-  if (contentInput) contentInput.value = (d.body || d.insight || d.tips || "").slice(0, 200);
+  if (contentInput) contentInput.value = (d.body || d.insight || d.tips || "").slice(0, uploadContentLimit);
   syncUploadTextCount();
   uploadTags = (d.chips || []).slice(0, uploadTagLimit).map((tag) => String(tag).slice(0, 5));
   renderUploadTags();
@@ -1530,10 +1529,10 @@ $("#agentShortcutService")?.addEventListener("click", () => openModal("support")
 $("#agentShortcutGoods")?.addEventListener("click", () => switchView("goods"));
 $("#agentShortcutPhone")?.addEventListener("click", () => showToast("客服电话：400-000-0000（原型）"));
 
-// ---------- 标记点指数榜详情 ----------
+// ---------- 精选推送详情 ----------
 const rankNoteData = {
   rank1: {
-    title: "观瀑台 · 此刻指数更高",
+    title: "观瀑台 · 此刻推荐",
     author: "宣发助手",
     avatar: "AI",
     heroClass: "ugcA",
@@ -1541,7 +1540,7 @@ const rankNoteData = {
     poiKey: "poi-guanpu",
     layer: "spot",
     audio: "这里是拍摄瀑布全景、感受水雾气势的推荐位置。当前雾气变淡，适合先拍远景，再补近景。",
-    chips: ["必玩榜", "适合拍照", "水雾较小"],
+    chips: ["必玩", "适合拍照", "水雾较小"],
     body: "雾散了一点点，主瀑层次更清晰。现场停留空间一般，建议靠边拍摄。",
     tips: "• 手机建议防水袋\n• 逆光方向更容易出彩虹\n• 人多时先拍远景再补近景",
   },
@@ -1554,7 +1553,7 @@ const rankNoteData = {
     poiKey: "poi-suantang",
     layer: "food",
     audio: "酸汤鱼是附近补给的高频选择，现在排队不长，适合错峰用餐后再继续游览。",
-    chips: ["好吃榜", "就近补给", "不排队"],
+    chips: ["好吃", "就近补给", "不排队"],
     body: "辣度可选，汤很香。两人建议点小份再加配菜，出餐快。",
     tips: "• 高峰期提前 10–15 分钟到\n• 先点主菜再加配菜更快\n• 带娃可选不辣/微辣",
   },
@@ -1567,7 +1566,7 @@ const rankNoteData = {
     poiKey: "poi-tianxing",
     layer: "spot",
     audio: "天星桥路段景观层次丰富，但石阶湿滑，建议放慢脚步，边走边听讲解更稳妥。",
-    chips: ["必玩榜", "防滑鞋", "慢行"],
+    chips: ["必玩", "防滑鞋", "慢行"],
     body: "这段路湿滑，穿防滑鞋更舒服。中途有补给点可以歇一歇。",
     tips: "• 台阶处注意扶手\n• 雨天慢走，不抢道\n• 走累了就近找休息点",
   },
@@ -1685,7 +1684,15 @@ function openRankDetail(id, sourceView = activeView) {
 }
 
 $$(".ugcCard").forEach((card) => {
-  card.addEventListener("click", () => openRankDetail(card.dataset.rankId));
+  card.addEventListener("click", () => {
+    if (card.dataset.rankId) {
+      openRankDetail(card.dataset.rankId);
+      return;
+    }
+    if (card.dataset.act) {
+      showToast(card.dataset.act === "worldcup" ? "打开世界杯游戏（原型）" : "打开消消乐游戏（原型）");
+    }
+  });
 });
 
 // ---------- 此刻建议详情 ----------
@@ -1753,15 +1760,15 @@ function openSuggestDetail(key) {
 
 // ---------- 此刻：UGC筛选 ----------
 const ugcRow = $("#ugcRow");
-$$(".segBtn").forEach((btn) => {
+$$(".featuredFilterRow .segBtn").forEach((btn) => {
   btn.addEventListener("click", () => {
-    $$(".segBtn").forEach((b) => b.classList.toggle("isOn", b === btn));
+    $$(".featuredFilterRow .segBtn").forEach((b) => b.classList.toggle("isOn", b === btn));
     const filter = btn.dataset.filter;
     $$(".ugcCard", ugcRow).forEach((card) => {
       const ok = filter === "all" || card.dataset.tag === filter;
       card.style.display = ok ? "" : "none";
     });
-    showToast(filter === "all" ? "已显示全部实拍" : `已筛选：${btn.textContent}`);
+    showToast(filter === "all" ? "已显示全部精选推送" : `已筛选：${btn.textContent}`);
   });
 });
 
@@ -1865,7 +1872,7 @@ $$(".sgEyebrow[data-ask]").forEach((btn) => {
 
 rankAiActivities("boot");
 
-// AI播报：公告型智能体
+// 智能快讯：公告型智能体
 function setupAiBriefAutoScroll() {
   const deck = document.querySelector("#view-now .aiBriefDeck");
   const slides = deck ? $$(".aiBriefSlide", deck) : [];
@@ -2032,7 +2039,8 @@ $("#btnUploadGuide")?.addEventListener("click", () => {
 
 let uploadImageFiles = [];
 let uploadTags = [];
-const uploadImageLimit = 10;
+const uploadContentLimit = 1000;
+const uploadImageLimit = 9;
 const uploadTagLimit = 4;
 
 function syncUploadImageCount() {
@@ -2085,10 +2093,10 @@ $("#guideUploadTitle")?.addEventListener("input", (event) => {
 });
 
 $("#guideUploadContent")?.addEventListener("input", (event) => {
-  const value = event.target.value.slice(0, 200);
+  const value = event.target.value.slice(0, uploadContentLimit);
   if (event.target.value !== value) event.target.value = value;
   const count = $("#guideUploadContentCount");
-  if (count) count.textContent = `${value.length}/200`;
+  if (count) count.textContent = `${value.length}/${uploadContentLimit}`;
 });
 
 function renderUploadTags() {
@@ -2176,7 +2184,7 @@ $("#guideUploadSubmit")?.addEventListener("click", () => {
     return;
   }
   if (!uploadImageFiles.length) {
-    showToast("请上传攻略图片");
+    showToast("请至少上传 1 张攻略图片");
     return;
   }
   if (!content) {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f6f3ea" />
     <title>贵州景区智能体 · UI原型</title>
-    <link rel="stylesheet" href="./styles.css?v=20260615-1259" />
+    <link rel="stylesheet" href="./styles.css?v=20260616-0017" />
   </head>
   <body class="theme-culture">
     <div class="stage" id="stage" aria-label="贵州景区智能体原型">
@@ -139,40 +139,40 @@
 
         <!-- 此刻 -->
         <section class="view" id="view-now" data-view="now">
-          <section class="aiBriefCard aiBriefCard--deck" aria-label="AI播报">
+          <section class="aiBriefCard aiBriefCard--deck" aria-label="智能快讯">
             <div class="aiBriefDeckHead">
-              <button class="aiBriefTitle" id="btnAiBriefList" aria-label="进入AI播报列表">
+              <button class="aiBriefTitle" id="btnAiBriefList" aria-label="进入智能快讯列表">
                 <span class="aiBriefAvatar" aria-hidden="true"><img src="./assets/ai-broadcast-avatar.png" alt="" /></span>
-                <span>AI播报</span>
+                <span>智能快讯</span>
               </button>
-              <button class="aiBriefCta aiBriefArrow" id="btnAiBriefAction" aria-label="进入AI播报列表">→</button>
+              <button class="aiBriefCta aiBriefArrow" id="btnAiBriefAction" aria-label="进入智能快讯列表">→</button>
             </div>
-            <div class="aiBriefDeck" aria-label="天气、客流与景区公告横向播报">
-              <button class="aiBriefSlide aiBriefSlide--weather" data-notice-id="weather" data-no-ripple="1" aria-label="天气播报详情">
+            <div class="aiBriefDeck" aria-label="天气、客流与景区公告横向快讯">
+              <button class="aiBriefSlide aiBriefSlide--weather" data-notice-id="weather" data-no-ripple="1" aria-label="天气快讯详情">
                 <div class="aiBriefSlideTop">
                   <span class="aiBriefType">天气</span>
                   <span class="aiBriefTime">实时</span>
                 </div>
                 <div class="aiBriefValue">21°C</div>
                 <div class="aiBriefMeta">
-                  <span class="aiBriefChip">建议：轻薄外套</span>
-                  <span class="aiBriefChip">雨衣可备</span>
+                  <span class="aiBriefChip">轻薄外套</span>
+                  <span class="aiBriefChip">可备雨具</span>
                 </div>
               </button>
 
-              <button class="aiBriefSlide aiBriefSlide--crowd" data-notice-id="crowd-rise" data-no-ripple="1" aria-label="客流播报详情">
+              <button class="aiBriefSlide aiBriefSlide--crowd" data-notice-id="crowd-rise" data-no-ripple="1" aria-label="客流快讯详情">
                 <div class="aiBriefSlideTop">
                   <span class="aiBriefType">客流</span>
                   <span class="aiBriefTime">14:30 预测</span>
                 </div>
                 <div class="aiBriefValue">舒适</div>
                 <div class="aiBriefMeta">
-                  <span class="aiBriefChip">依据：客流趋势</span>
-                  <span class="aiBriefChip">影响：等候变长</span>
+                  <span class="aiBriefChip">先观瀑</span>
+                  <span class="aiBriefChip">慢慢逛</span>
                 </div>
               </button>
 
-              <button class="aiBriefSlide aiBriefSlide--notice" data-notice-id="shuttle" data-no-ripple="1" aria-label="公告播报详情">
+              <button class="aiBriefSlide aiBriefSlide--notice" data-notice-id="shuttle" data-no-ripple="1" aria-label="公告快讯详情">
                 <div class="aiBriefSlideTop">
                   <span class="aiBriefType">公告</span>
                   <span class="aiBriefTime">刚刚</span>
@@ -235,47 +235,15 @@
 
             <div class="sectionHead">
               <div class="hStack">
-                <div class="h">推荐互动</div>
+                <div class="h">精选推送</div>
               </div>
             </div>
-            <div class="activityRow" id="aiActivityRow">
-              <button class="activityCard activityCard--mint" data-act="match3" aria-label="消消乐">
-                <div class="activityTitle">消消乐</div>
-                <div class="aiReasonRow">
-                  <span class="aiReason">排队间隙</span>
-                  <span class="aiReason">亲子友好</span>
-                </div>
-                <div class="activityDesc">走路间隙来一局，不耽误路线。</div>
-              </button>
-              <button class="activityCard activityCard--blue" data-act="worldcup" aria-label="世界杯游戏">
-                <div class="activityTitle">世界杯游戏</div>
-                <div class="aiReasonRow">
-                  <span class="aiReason">限时</span>
-                  <span class="aiReason">组队更嗨</span>
-                </div>
-                <div class="activityDesc">适合你想停下来玩 10 分钟的时候。</div>
-              </button>
-            </div>
-
-            <div class="sectionHead">
-              <div class="hStack">
-                <div class="h">标记点指数榜</div>
-              </div>
-              <div class="headActions">
-                <div class="seg" role="tablist" aria-label="榜单筛选">
-                  <button class="segBtn isOn" data-filter="all">全部</button>
-                  <button class="segBtn" data-filter="view">必玩榜</button>
-                  <button class="segBtn" data-filter="food">好吃榜</button>
-                </div>
-              </div>
-            </div>
-            <div class="ugcMasonry" id="ugcRow" aria-label="标记点指数榜横向列表">
-              <button class="ugcCard" data-rank-id="rank1" data-tag="view" data-src="aigc" aria-label="观瀑台">
-                <div class="ugcAiBadge" aria-hidden="true">AI</div>
-                <div class="ugcImg ugcA" aria-hidden="true"></div>
+            <div class="ugcMasonry" id="ugcRow" aria-label="精选推送横向列表">
+              <button class="ugcCard ugcCard--game" data-tag="official" data-act="worldcup" aria-label="世界杯游戏">
+                <div class="ugcImg ugcGameWorldcup" aria-hidden="true"></div>
                 <div class="ugcCap">
-                  <div class="ugcTitle">观瀑台 · 此刻指数更高</div>
-                  <div class="ugcDesc">雾散了一点点，瀑布层次很出。</div>
+                  <div class="ugcTitle">世界杯游戏</div>
+                  <div class="ugcTagLine"><span class="ugcTag">官方推荐</span></div>
                   <div class="ugcAuthor">
                     <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
                     <span class="ugcAuthorName">宣发助手</span>
@@ -287,7 +255,28 @@
                 <div class="ugcImg ugcB" aria-hidden="true"></div>
                 <div class="ugcCap">
                   <div class="ugcTitle">酸汤鱼 · 排队不长</div>
-                  <div class="ugcDesc">排队不长，辣度可选，汤很香。</div>
+                  <div class="ugcTagLine"><span class="ugcTag">官方推荐</span></div>
+                  <div class="ugcAuthor">
+                    <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
+                    <span class="ugcAuthorName">宣发助手</span>
+                  </div>
+                </div>
+              </button>
+              <button class="ugcCard ugcCard--game" data-tag="official" data-act="match3" aria-label="消消乐">
+                <div class="ugcImg ugcGameMatch" aria-hidden="true"></div>
+                <div class="ugcCap">
+                  <div class="ugcTitle">消消乐</div>
+                  <div class="ugcAuthor">
+                    <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
+                    <span class="ugcAuthorName">宣发助手</span>
+                  </div>
+                </div>
+              </button>
+              <button class="ugcCard" data-rank-id="rank1" data-tag="view" data-src="aigc" aria-label="观瀑台">
+                <div class="ugcAiBadge" aria-hidden="true">AI</div>
+                <div class="ugcImg ugcA" aria-hidden="true"></div>
+                <div class="ugcCap">
+                  <div class="ugcTitle">观瀑台 · 此刻推荐</div>
                   <div class="ugcAuthor">
                     <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
                     <span class="ugcAuthorName">宣发助手</span>
@@ -299,7 +288,6 @@
                 <div class="ugcImg ugcC" aria-hidden="true"></div>
                 <div class="ugcCap">
                   <div class="ugcTitle">天星桥 · 湿滑提醒</div>
-                  <div class="ugcDesc">这段路湿滑，鞋底防滑更舒服。</div>
                   <div class="ugcAuthor">
                     <span class="ugcAvatar ugcAvatar--ai" aria-hidden="true">AI</span>
                     <span class="ugcAuthorName">宣发助手</span>
@@ -443,7 +431,7 @@
                 <div class="guideBody">
                   <div class="guideTitle">逛到这里先补能量，酸汤鱼这样吃不踩雷</div>
                   <div class="guideMeta">
-                    <span class="guideTag">好吃榜</span>
+                    <span class="guideTag">好吃</span>
                     <span class="guideTag">约 1h</span>
                   </div>
                   <div class="guideFooter">
@@ -518,7 +506,7 @@
         <section class="view" id="view-notice-list" data-view="noticeList">
           <div class="noticePage">
             <div class="noticePageHero">
-              <div class="noticePageTitle">AI公告列表</div>
+              <div class="noticePageTitle">智能快讯</div>
               <div class="noticePageSub">景区百事通汇总当前公告、提醒与临时变化</div>
             </div>
             <div class="noticeTools" aria-label="公告搜索和筛选">
@@ -542,7 +530,7 @@
           <div class="noticePage">
             <div class="noticeDetailCard">
               <div class="noticeDetailTop">
-              <div class="noticeDetailBadge" id="noticeDetailBadge">AI播报</div>
+              <div class="noticeDetailBadge" id="noticeDetailBadge">智能快讯</div>
               </div>
               <div class="noticeDetailTitle" id="noticeDetailTitle">公告标题</div>
               <div class="noticeAiSummary" id="noticeDetailAiSummary"></div>
@@ -635,18 +623,18 @@
 
               <div class="uploadFieldHead">
                 <label class="uploadLabel" for="guideUploadContent">正文内容 <span class="uploadRequired">*</span></label>
-                <span class="uploadLimit" id="guideUploadContentCount">0/200</span>
+                <span class="uploadLimit" id="guideUploadContentCount">0/1000</span>
               </div>
-              <textarea class="uploadTextarea" id="guideUploadContent" maxlength="200" placeholder="写下你的路线、避坑点、拍照机位、排队情况和适合人群"></textarea>
+              <textarea class="uploadTextarea" id="guideUploadContent" maxlength="1000" placeholder="写下你的路线、避坑点、拍照机位、排队情况和适合人群"></textarea>
             </div>
 
             <div class="uploadBlock uploadMediaBlock">
               <div class="uploadBlockHead">
                 <div>
                   <div class="uploadBlockTitle">上传图片 <span class="uploadRequired">*</span></div>
-                  <div class="uploadBlockHint">上传图片，最多上传10 张，首图默认为封面</div>
+                  <div class="uploadBlockHint">上传图片，最少 1 张，最多上传 9 张，首图默认为封面</div>
                 </div>
-                <div class="uploadCount" id="uploadImageCount">0/10</div>
+                <div class="uploadCount" id="uploadImageCount">0/9</div>
               </div>
               <label class="uploadPicker" for="guideUploadImages">
                 <input id="guideUploadImages" type="file" accept="image/*" multiple />
@@ -723,7 +711,7 @@
           </div>
         </section>
 
-        <!-- 标记点指数榜详情（小红书风格） -->
+        <!-- 精选推送详情（小红书风格） -->
         <section class="view" id="view-rank-detail" data-view="rankDetail">
           <div class="notePage" id="rankNotePage">
             <div class="noteCarousel" id="rankCarousel" aria-label="标记点图片">
@@ -1260,6 +1248,6 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="./app.js?v=20260615-1259"></script>
+    <script src="./app.js?v=20260616-0017"></script>
   </body>
 </html>
