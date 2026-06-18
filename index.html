@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f6f3ea" />
     <title>贵州景区智能体 · UI原型</title>
-    <link rel="stylesheet" href="./styles.css?v=20260616-0017" />
+    <link rel="stylesheet" href="./styles.css?v=20260616-0022" />
   </head>
   <body class="theme-culture">
     <div class="stage" id="stage" aria-label="贵州景区智能体原型">
@@ -1197,6 +1197,19 @@
           </div>
         </div>
       </nav>
+
+      <div class="imagePreviewOverlay" id="imagePreviewOverlay" aria-hidden="true">
+        <button class="imagePreviewScrim" id="imagePreviewScrim" type="button" aria-label="关闭图片预览"></button>
+        <div class="imagePreviewCard" role="dialog" aria-modal="true" aria-label="图片预览">
+          <div class="imagePreviewFrame">
+            <img class="imagePreviewImg" id="imagePreviewImg" src="" alt="图片预览" />
+            <button class="imagePreviewClose" id="imagePreviewClose" type="button" aria-label="缩小图片预览">
+              <span class="i i-minimize" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div class="imagePreviewCount" id="imagePreviewCount"></div>
+        </div>
+      </div>
     </div>
 
     <button class="prototypeRemarkBtn" id="prototypeRemarkBtn" type="button" aria-label="打开备注说明">备注</button>
@@ -1248,6 +1261,6 @@
 
     <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-    <script src="./app.js?v=20260616-0017"></script>
+    <script src="./app.js?v=20260616-0022"></script>
   </body>
 </html>

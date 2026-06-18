@@ -2043,6 +2043,28 @@ const uploadContentLimit = 1000;
 const uploadImageLimit = 9;
 const uploadTagLimit = 4;
 
+function closeUploadImagePreview() {
+  const overlay = $("#imagePreviewOverlay");
+  const image = $("#imagePreviewImg");
+  if (!overlay) return;
+  overlay.classList.remove("isOn");
+  overlay.setAttribute("aria-hidden", "true");
+  if (image) image.removeAttribute("src");
+}
+
+function openUploadImagePreview(index) {
+  const item = uploadImageFiles[index];
+  const overlay = $("#imagePreviewOverlay");
+  const image = $("#imagePreviewImg");
+  const count = $("#imagePreviewCount");
+  if (!item?.url || !overlay || !image) return;
+  image.src = item.url;
+  image.alt = `攻略图片预览 ${index + 1}`;
+  if (count) count.textContent = `${index + 1}/${uploadImageFiles.length}`;
+  overlay.classList.add("isOn");
+  overlay.setAttribute("aria-hidden", "false");
+}
+
 function syncUploadImageCount() {
   const count = $("#uploadImageCount");
   if (count) count.textContent = `${uploadImageFiles.length}/${uploadImageLimit}`;
@@ -2052,6 +2074,7 @@ function renderUploadPreviews() {
   const rail = $("#uploadPreviewRail");
   if (!rail) return;
   if (!uploadImageFiles.length) {
+    closeUploadImagePreview();
     rail.innerHTML = "";
     rail.classList.remove("isOn");
     syncUploadImageCount();
@@ -2060,21 +2083,38 @@ function renderUploadPreviews() {
   rail.classList.add("isOn");
   rail.innerHTML = uploadImageFiles.map((item, idx) => `
     <div class="uploadPreviewCard">
-      <img src="${item.url}" alt="攻略图片预览 ${idx + 1}" />
-      ${idx === 0 ? `<span class="uploadPreviewBadge">封面</span>` : ""}
+      <button class="uploadPreviewOpen" data-upload-preview="${idx}" type="button" aria-label="预览第${idx + 1}张图片">
+        <img src="${item.url}" alt="攻略图片预览 ${idx + 1}" />
+        ${idx === 0 ? `<span class="uploadPreviewBadge">封面</span>` : ""}
+      </button>
       <button class="uploadPreviewRemove" data-upload-remove="${idx}" type="button" aria-label="删除第${idx + 1}张图片">×</button>
     </div>
   `).join("");
-  $$(".uploadPreviewRemove", rail).forEach((btn) => {
+  $$(".uploadPreviewOpen", rail).forEach((btn) => {
     btn.addEventListener("click", () => {
+      openUploadImagePreview(Number(btn.dataset.uploadPreview));
+    });
+  });
+  $$(".uploadPreviewRemove", rail).forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      event.stopPropagation();
       const index = Number(btn.dataset.uploadRemove);
       const removed = uploadImageFiles.splice(index, 1)[0];
       if (removed?.url) URL.revokeObjectURL(removed.url);
+      closeUploadImagePreview();
       renderUploadPreviews();
     });
   });
   syncUploadImageCount();
 }
+
+$("#imagePreviewScrim")?.addEventListener("click", closeUploadImagePreview);
+$("#imagePreviewClose")?.addEventListener("click", closeUploadImagePreview);
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape") return;
+  const overlay = $("#imagePreviewOverlay");
+  if (overlay?.classList.contains("isOn")) closeUploadImagePreview();
+});
 
 $("#guideUploadImages")?.addEventListener("change", (event) => {
   const files = Array.from(event.target.files || []).slice(0, Math.max(0, uploadImageLimit - uploadImageFiles.length));
